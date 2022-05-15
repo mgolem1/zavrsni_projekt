@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Rental.DbModels.Vozilo>
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Popis vozila</h1>
+
+
+<table id="myTable" class="table table-bordered table-hover table-sm">
+    <thead class=".thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cijena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registracija)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategorijaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cijena)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Registracija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KategorijaNavigation.Naziv)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

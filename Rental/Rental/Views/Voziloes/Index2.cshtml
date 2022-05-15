@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Rental.DbModels.Vozilo>
+
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h1>Vozila</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="myTable" class="table table-bordered table-hover table-sm">
+    <thead class=".thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cijena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registracija)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategorijaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cijena)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Registracija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KategorijaNavigation.Naziv)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Idvozilo">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Idvozilo">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Idvozilo">Delete</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

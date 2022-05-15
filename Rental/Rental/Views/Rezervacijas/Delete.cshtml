@@ -1,0 +1,71 @@
+﻿@model Rental.DbModels.Rezervacija
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rezervacija</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumOd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DatumOd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumDo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DatumDo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KlijentNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KlijentNavigation.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MjestoPovrataNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MjestoPovrataNavigation.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MjestoPreuzimanjaNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MjestoPreuzimanjaNavigation.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NacinNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NacinNavigation.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VoziloNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VoziloNavigation.Model)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CijenaRez)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CijenaRez)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Idrezervacija" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

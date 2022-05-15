@@ -1,0 +1,68 @@
+﻿@model Rental.DbModels.Rezervacija
+
+@using Microsoft.AspNetCore.Http;
+
+
+
+
+<body>
+    <h4>Rezervacija</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="RezervacijaVozila" method="POST">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="DatumOd" class="control-label"></label>
+                    <input asp-for="DatumOd" class="form-control" />
+                    <span asp-validation-for="DatumOd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DatumDo" class="control-label"></label>
+                    <input asp-for="DatumDo" class="form-control" />
+                    <span asp-validation-for="DatumDo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="MjestoPreuzimanja" class="control-label">Mjesto povrata: </label><br />
+                    <select asp-for="MjestoPreuzimanja" class="form-control" asp-items="@ViewBag.MjestoPre">
+                        <option>Odaberite...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="MjestoPovrata" class="control-label">Mjesto povrata: </label><br />
+                    <select asp-for="MjestoPovrata" class="form-control" asp-items="@ViewBag.MjestoPov">
+                        <option>Odaberite...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Klijent" class="control-label">Klijent: </label><br />
+                    <select asp-for="Klijent" class="form-control" asp-items="@ViewBag.Klij" hidden>
+                    </select>
+                    <input type="text" value="@ViewBag.K" class="form-control" disabled />
+                </div>
+
+                <div class="form-group">
+                    <label for="Vozilo" class="control-label"></label>Vozilo: <br />
+                    <select asp-for="Vozilo" class="form-control" asp-items="@ViewBag.Voz" hidden>
+                    </select>
+                    <input type="text" value="@ViewBag.V" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label for="Nacin" class="control-label">Nacin placanja prilikom preuzimanja: </label>
+                    <select asp-for="Nacin" class="form-control" asp-items="@ViewBag.NacinPla">
+                        <option>Odaberite...</option>
+                    </select>
+                </div>
+
+
+        <br />
+        <input type="submit" value="Potvrdi" class="btn btn-primary"/>
+               
+        </form>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

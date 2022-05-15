@@ -1,0 +1,48 @@
+﻿@model Rental.DbModels.Rezervacija
+@{
+    ViewData["Title"] = "Dodaj";
+}
+
+
+<h1>SignUpKlijent</h1>
+
+<body>
+    <div style="text-align:center;">
+        <h1><b>Registracija</b><img src="~/registracija.png" height="90px" width="90px"></h1>
+    </div>
+    <center><h3 style="color:darkred"> @ViewBag.Poruka</h3></center>
+    <form class="form-group" method="POST" enctype="multipart/form-data" asp-controller="Voziloes" asp-action="Rezervacija">
+        <div id="forma2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DatumOd" class="control-label"></label>
+                <input asp-for="DatumOd" class="form-control" />
+                <span asp-validation-for="DatumOd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumDo" class="control-label"></label>
+                <input asp-for="DatumDo" class="form-control" />
+                <span asp-validation-for="DatumDo" class="text-danger"></span>
+            </div>
+            <label for="ime"><b>Ime:</b></label><br />
+            <select type="text" placeholder="Ime..." name="ime" id="ime" required><br />
+            <label for="prezime"><b>Prezime:</b></label><br />
+            <input type="text" placeholder="Prezime..." name="prezime" maxlength="70" id="prezime" required><br />
+            <label for="Email"><b>Email:</b></label><br />
+            <input type="email" placeholder="Email..." name="email" id="email" maxlength="70" required><br />
+            <label for="psw"><b>Lozinka:</b></label><br />
+            <input type="password" placeholder="Lozinka..." name="Lozinka" maxlength="70" id="psw" required><br />
+            <label for="psw-repeat"><b>Ponovite lozinku:</b></label><br />
+            <input type="password" placeholder="Ponovite lozinku" name="loz2" maxlength="70" id="psw-repeat" required>
+            <br />
+            <input type="submit" name="signup" value="Sign up"></input>
+        </div>
+    </form>
+</body>
+
+<script type="text/javascript">
+    'use strict';
+    function dodjeli() {
+        document.getElementById("ime").innerHTML = "";
+    }
+</script>

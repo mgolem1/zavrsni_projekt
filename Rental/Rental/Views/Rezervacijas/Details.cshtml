@@ -1,0 +1,66 @@
+﻿@model Rental.DbModels.Rezervacija
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Rezervacija</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumOd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DatumOd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumDo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DatumDo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KlijentNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KlijentNavigation.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MjestoPovrataNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MjestoPovrataNavigation.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MjestoPreuzimanjaNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MjestoPreuzimanjaNavigation.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NacinNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NacinNavigation.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VoziloNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VoziloNavigation.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CijenaRez)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CijenaRez)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Idrezervacija">Edit</a> |
+    <a asp-controller="Voziloes" asp-action="Index">Vozila</a>
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "SignUpKlijent";
+}
+<style>
+    input[type=submit] {
+        width: 60%;
+        background-color: navy;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #forma2 {
+        width: 60%;
+        border-radius: 5px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    input[type=text], input[type=password], input[type=email] {
+        width: 60%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url(../css/pozadinaRegistracije.jpg);
+    }
+</style>
+
+<body >
+    <div style="text-align:center;">
+        <h1><b>Registracija</b><img src="~/registracija.png" height="90px" width="90px"></h1>
+    </div>
+    <center><h3 style="color:darkred"> @ViewBag.Poruka</h3></center>
+    <form class="form-group" method="POST" enctype="multipart/form-data" asp-controller="Login" asp-action="SignUpKlijent">
+        <div id="forma2" class="col col-lg-auto">
+            <label for="ime"><b>Ime:</b></label><br />
+            <input type="text" placeholder="Ime..." name="ime" id="ime" required><br />
+            <label for="prezime"><b>Prezime:</b></label><br />
+            <input type="text" placeholder="Prezime..." name="prezime" maxlength="70" id="prezime" required><br />
+            <label for="Email"><b>Email:</b></label><br />
+            <input type="email" placeholder="Email..." name="email" id="email" maxlength="70" required><br />
+
+            <label for="psw"><b>Lozinka:</b></label><br />
+            <input type="password" placeholder="Lozinka..." name="Lozinka" maxlength="70" id="psw" required><br />
+            <label for="psw-repeat"><b>Ponovite lozinku:</b></label><br />
+            <input type="password" placeholder="Ponovite lozinku" name="loz2" maxlength="70" id="psw-repeat" required>
+            <br />
+            <input type="submit" name="signup" value="Registriraj se" @ViewBag.TimeExecute ms/>
+        </div>
+    </form>
+</body>

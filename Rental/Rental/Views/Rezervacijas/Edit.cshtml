@@ -1,0 +1,66 @@
+﻿@model Rental.DbModels.Rezervacija
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Rezervacija</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idrezervacija" />
+            <div class="form-group">
+                <label asp-for="DatumOd" class="control-label"></label>
+                <input asp-for="DatumOd" class="form-control" />
+                <span asp-validation-for="DatumOd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumDo" class="control-label"></label>
+                <input asp-for="DatumDo" class="form-control" />
+                <span asp-validation-for="DatumDo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MjestoPreuzimanja" class="control-label"></label>
+                <select asp-for="MjestoPreuzimanja" class="form-control" asp-items="ViewBag.MjestoPreuzimanja"></select>
+                <span asp-validation-for="MjestoPreuzimanja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MjestoPovrata" class="control-label"></label>
+                <select asp-for="MjestoPovrata" class="form-control" asp-items="ViewBag.MjestoPovrata"></select>
+                <span asp-validation-for="MjestoPovrata" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="Vozilo" class="form-control" asp-items="@ViewBag.Voz" hidden>
+                </select>
+                <input type="text" value="@ViewBag.V" class="form-control" disabled />
+                <span asp-validation-for="Vozilo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Klijent" class="control-label"></label>
+                <select asp-for="Klijent" class="form-control" asp-items="ViewBag.Klijent" hidden></select>
+                <span asp-validation-for="Klijent" class="text-danger"></span>
+                <input type="text" value="@ViewBag.K" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Nacin" class="control-label"></label>
+                <select asp-for="Nacin" class="form-control" asp-items="ViewBag.Nacin"></select>
+                <span asp-validation-for="Nacin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

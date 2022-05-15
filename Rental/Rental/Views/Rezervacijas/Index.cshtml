@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Rental.DbModels.Rezervacija>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Popis rezervacija</h1>
+
+@ViewBag.U
+<table id="myTable" class="table table-bordered table-hover table-sm">
+    <thead class=".thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumOd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumDo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KlijentNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MjestoPovrataNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MjestoPreuzimanjaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NacinNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoziloNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CijenaRez)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumOd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumDo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KlijentNavigation.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MjestoPovrataNavigation.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MjestoPreuzimanjaNavigation.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NacinNavigation.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoziloNavigation.Model)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.CijenaRez)
+            </th>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idrezervacija">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idrezervacija">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idrezervacija">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
